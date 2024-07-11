@@ -74,6 +74,32 @@ const Map = () => {
     shadowAnchor: [12, 41], // Anchor position of the shadow relative to the icon
 });
 
+// const handleMarkerClick = async () => {
+//   try {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/todos/1', {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ lat: position.latitude, lng: position.longitude }),
+//     });
+//     const data = await response.json();
+//     console.log('API response:', data);
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// };
+
+const handleMarkerClick = async () => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos/32`);
+    const data = await response.json();
+    console.log('API response:', data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
 
   const updatePosition = (e) => {
     const marker = e.target;
@@ -122,14 +148,14 @@ const Map = () => {
         {/* <TileLayer
           url={}
         /> */}
-       <Marker
-    position={[position.latitude, position.longitude]}
-    icon={shadowIcon} // Use the shadow icon
-    draggable={false}
-    eventHandlers={{
-        dragend: updatePosition,
-    }}
-/>
+<Marker
+          position={[position.latitude, position.longitude]}
+          draggable={false}
+          eventHandlers={{
+            dragend: updatePosition,
+            click: handleMarkerClick,
+          }}
+        />
       
 
         <HeatMapLayer points={heatmapData} />
