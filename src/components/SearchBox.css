@@ -1,0 +1,27 @@
+.search-box {
+    display: flex;
+    justify-content: flex-start; 
+    margin: 10px;
+  }
+  
+  .search-box input {
+    width: 100px; 
+    padding: 5px; 
+    font-size: 14px; 
+    margin-right: 10px;
+  }
+  
+  .search-box button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  .lat-lon-inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .lat-lon-inputs input {
+    flex: 1;
+  }
+  
